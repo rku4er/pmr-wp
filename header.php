@@ -35,19 +35,10 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
-	<!-- scripts -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/scripts/sticky.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/scripts/carousel.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/scripts/img.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/scripts/scripts.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/scripts/modernizr.custom.44033.js"></script>
-	<!-- scripts -->
 </head>
 <body>
 

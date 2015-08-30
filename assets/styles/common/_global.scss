@@ -1113,8 +1113,64 @@ h2 {
 }
 
 
+/*===========================
+ *     *         *          *
+ *     *         *          *
+ * ===============================
+ * SOSOSOSORY CUSTOM STYLES
+ * Pain Meeting Highlights section
+ * ===============================
+ *
+ */
 
-
-
-
+.webinar{
+    background-color: #fff;
+}
+.pain-meeting h3{
+    box-sizing: border-box;
+    color: #000;
+    font: 700 20px/27px "Open Sans";
+    margin-bottom: 30px;
+    position: relative;
+    text-transform: uppercase;
+}
+.pain-meeting .live-meeting,
+.pain-meeting .meeting-news{
+     max-width: 100%;
+     float: none;
+     margin: 0 auto;
+     width: 100%;
+     padding: 20px;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+@media screen and (min-width: 480px){
+    .pain-meeting .live-meeting,
+    .pain-meeting .meeting-news{
+         float: left;
+         width: 50%;
+    }
+    .pain-meeting .live-meeting .item{
+         overflow: hidden;
+    }
+    .pain-meeting .live-meeting .item .thumb{
+         float: left;
+         width: 47%;
+         overflow: hidden;
+    }
+    .pain-meeting .live-meeting .item .thumb:nth-child(2n){
+        margin-left: 6%;
+    }
+    .pain-meeting .meeting-news .item{
+        overflow: hidden;
+    }
+    .pain-meeting .meeting-news .item .news{
+         float: left;
+         width: 50%;
+    }
+}
+.pain-meeting .meeting-news .extra{
+    display: none;
+}
 
