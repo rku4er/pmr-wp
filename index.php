@@ -8,34 +8,34 @@ get_header(); ?>
 
     <div class="pain-meeting">
         <div class="container">
-            <h2 class="sticky">Pain meeting highlights - 2015</h2>
+            <h2 class="sticky"><span>Pain meeting highlights - 2015</span></h2>
+
             <div class="wrap clearfix">
+
                 <div class="live-meeting">
                     <h3>Live meeting coverage</h3>
-                    <?php $lm = new WP_Query(array('post_type' => 'live-meeting')); ?>
-                    <?php $carousel_id = uniqid('carousel_'); ?>
-                    <?php if($lm): ?>
-                    <div class="carousel slide" id="<?php echo $carousel_id; ?>" data-ride="carousel">
+                    <?php $lm_post = new WP_Query(array('post_type' => 'live-meeting')); ?>
+                    <?php $lm_carousel_id = uniqid('carousel_'); ?>
+                    <?php if($lm_post): ?>
+                    <div class="carousel slide" id="<?php echo $lm_carousel_id; ?>" data-ride="carousel" data-interval="0">
                         <div class="carousel-inner">
-                            <?php $i=0; while($lm->have_posts()) : $lm->the_post(); $i++; ?>
+                            <?php $i=0; while($lm_post->have_posts()) : $lm_post->the_post(); $i++; ?>
 
                             <?php
                                 if($i === 1){
-                                    echo '<div class="item">';
-                                }else if(($i-1)%4 === 0){
+                                    echo '<div class="item active">';
+                                }elseif(($i-1)%4 === 0){
                                     echo '</div><div class="item">';
                                 }
                             ?>
                             <a class="thumb" href="#">
                                 <img src="<?php echo wp_get_attachment_image_src( get_field('video_preview'), 'live-meeting-thumb')[0]; ?>" />
-                                <div class="top-layer">
-                                    <p class="title"><?php the_title(); ?></p>
-                                    <i class="play"></i>
-                                    <p class="play-video">Play Video</p>
-                                </div>
+                                <p class="title"><?php the_title(); ?></p>
+                                <i class="play-icon"></i>
+                                <p class="play-text">Play Video</p>
                             </a>
                             <?php
-                                if($i === $lm->post_count){
+                                if($i === $lm_post->post_count){
                                     echo '</div>';
                                 }
                             ?>
@@ -45,50 +45,126 @@ get_header(); ?>
                         </div>
 
                         <!-- Controls -->
-                        <a class="left carousel-control" href="#<?php echo $carousel_id; ?>" role="button" data-slide="prev">
-                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <a class="left carousel-control" href="#<?php echo $lm_carousel_id; ?>" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
                           <span class="sr-only">Previous</span>
                         </a>
-                        <a class="right carousel-control" href="#<?php echo $carousel_id; ?>" role="button" data-slide="next">
-                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <a class="right carousel-control" href="#<?php echo $lm_carousel_id; ?>" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
                           <span class="sr-only">Next</span>
                         </a>
+
                     </div>
                     <?php endif; ?>
                 </div>
+
                 <div class="meeting-news">
                     <h3>Meeting News</h3>
-                    <?php $mn = new WP_Query(array('post_type' => 'meeting-news')); ?>
-                    <?php $i=0; while($mn->have_posts()) : $mn->the_post(); $i++; ?>
 
-                    <?php
-                        if($i === 1){
-                            echo '<div class="item">';
-                        }else if(($i-1)%2 === 0){
-                            echo '</div><div class="item">';
-                        }
-                    ?>
+                    <?php $mn_post = new WP_Query(array('post_type' => 'meeting-news')); ?>
+                    <?php $mn_carousel_id = uniqid('carousel_'); ?>
+                    <?php $mn_lightbox_arr = array(); ?>
+                    <?php if($mn_post): ?>
 
-                    <div class="news">
-                        <a href="<?php the_field('link'); ?>" target="_blank" class="title"><?php trim_title_chars(50, '...'); ?></a>
-                        <p><?php content('20'); ?></p>
-                        <div class="extra">
-                            <span class="date"><?php the_time('M d, Y'); ?></span>
-                            <a href="<?php the_field('link'); ?>" target="_blank" class="title"><?php trim_title_chars(50, '...'); ?></a>
-                            <p><?php the_content(); ?></p>
+                    <div class="carousel slide" id="<?php echo $mn_carousel_id; ?>" data-ride="carousel" data-interval="0">
+                        <div class="carousel-inner">
+
+                            <?php $i=0; while($mn_post->have_posts()) : $mn_post->the_post(); $i++; ?>
+
+                            <?php
+                                $mn_item_id = uniqid('box_');
+                                $extra = array();
+                                $extra['time'] = get_the_time('M d, Y');
+                                $extra['title'] = get_the_title();
+                                $extra['content'] = get_the_content();
+                                $extra['author'] = get_the_author();
+                                $extra['id'] = $mn_item_id;
+
+                                $socials = function_exists('get_field') ? get_field('socials') : false;
+
+                                if($socials){
+
+                                    foreach($socials as $social){
+                                        $socials_html .= '<a target="_blank" href="'. $social['url'] .'"><img src="'. $social['icon'] .'" alt=""></a>';
+                                    }
+
+                                    $extra['socials'] = $socials_html;
+                                }else{
+                                    $extra['socials'] = false;
+                                }
+
+
+                                $mn_lightbox_arr[]= $extra;
+                            ?>
+
+                            <?php
+                                if($i === 1){
+                                    echo '<div class="item active">';
+                                }elseif(($i-1)%2 === 0){
+                                    echo '</div><div class="item">';
+                                }
+                            ?>
+
+                            <div class="news">
+                                <a href="#<?php echo $mn_item_id; ?>" class="title"><?php trim_title_chars(50, '...'); ?>
+                                    <p><?php content('43'); ?></p>
+                                </a>
+                            </div>
+
+                            <?php
+                                if($i === $mn_post->post_count){
+                                    echo '</div>';
+                                }
+                            ?>
+
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
+
                         </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#<?php echo $mn_carousel_id; ?>" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#<?php echo $mn_carousel_id; ?>" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+
                     </div>
+                    <?php endif; ?>
 
-                    <?php
-                        if($i === $lm->post_count){
-                            echo '</div>';
+                </div><!--  /.meeting-news -->
+
+                <?php
+                    if(count($mn_lightbox_arr)){
+                        $html = '<div class="mn-boxes hidden">';
+                        $html .= '<button class="close-btn"><span>&times;</span></button>';
+                        $i = 0;
+
+                        foreach($mn_lightbox_arr as $box){
+                            $i++;
+                            $active = ($i === 1) ? ' active' : '';
+                            $html .= '<div class="box '. $active .'" id="'. $box['id'] .'">';
+                                $html .= '<h4 class="title">' . $box['title'] . '</h4>';
+                                $html .= '<div class="content">' . $box['content'] . '</div>';
+                                $html .= '<div class="footer clearfix">';
+                                    $html .= '<div class="column">';
+                                        $html .= '<div class="author">' . $box['author'] . '</div>';
+                                        $html .= '<div class="time">' . $box['time'] . '</div>';
+                                    $html .= '</div>';
+                                    $html .= '<div class="socials">' . $box['socials'] . '</div>';
+                                $html .= '</div>';
+                            $html .= '</div>';
                         }
-                    ?>
+                        $html .= '</div>';
+                        echo $html;
+                    }
+                ?>
 
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
-                </div>
-            </div>
+            </div><!--  /.wrap -->
+
         </div>
     </div>
     <div class="news-features">

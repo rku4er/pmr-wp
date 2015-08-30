@@ -23,14 +23,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<!-- favicons -->
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" sizes="32x32" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon-32.png">
-	<link rel="shortcut icon" sizes="32x32 57x57 72x72 114x114 120x120 144x144 152x152" href="<?php bloginfo('template_url'); ?>/img/favicons/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" sizes="32x32" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon-32.png">
+	<link rel="shortcut icon" sizes="32x32 57x57 72x72 114x114 120x120 144x144 152x152" href="<?php bloginfo('template_url'); ?>/dist/images/favicons/favicon.ico">
 	<!-- favicons -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 

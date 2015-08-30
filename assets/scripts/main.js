@@ -61,14 +61,15 @@
 
         $(".sticky").stick_in_parent()
         .on("sticky_kit:stick", function(e) {
-            $(this).addClass('hide');
+            $(this).addClass('hide_stick');
         })
         .on("sticky_kit:unstick", function(e) {
-            $(this).removeClass('unhide');
+            $(this).removeClass('hide_stick');
         });
 
 
         // Webinar
+
 
         // Video Triggers
         $(".v-tabs a").click(function(event) {

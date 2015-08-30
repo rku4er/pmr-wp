@@ -24,14 +24,6 @@ body {
 #wrapper {
     min-height: 100%;
 }
-.container {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 940px;
-    width: 100%;
-}
 h2 {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -80,7 +72,7 @@ h2 {
     width: 100%;
     z-index: 99;
     .logo {
-        background: url(img/logo.png) no-repeat;
+        background: url(../images/logo.png) no-repeat;
         background-size: 100%;
         cursor: default;
         float: left;
@@ -89,7 +81,7 @@ h2 {
         width: 279px;
     }
     .logo_quest {
-        background: url(img/logo_quest.png) no-repeat;
+        background: url(../images/logo_quest.png) no-repeat;
         background-size: 100%;
         cursor: default;
         float: right;
@@ -101,7 +93,7 @@ h2 {
     #About
 \*------------------------------------*/
 .about {
-    background: url(img/b_about.jpg);
+    background: url(../images/b_about.jpg);
     font: 14px/19px "Open Sans";
     padding: 95px 0 25px;
     text-align: center;
@@ -158,7 +150,7 @@ h2 {
             }
         }
         .play {
-            background: url(img/ico_play.png) 34px center no-repeat #4C7637;
+            background: url(../images/ico_play.png) 34px center no-repeat #4C7637;
             background-size: 40px 50px;
             border-radius: 100%;
             cursor: pointer;
@@ -337,7 +329,7 @@ h2 {
                 z-index: 2;
             }
             .play {
-                background: url(img/ico_play.png) 20px center no-repeat #4C7637;
+                background: url(../images/ico_play.png) 20px center no-repeat #4C7637;
                 background-size: 26px 32px;
                 border-radius: 100%;
                 height: 60px;
@@ -379,6 +371,23 @@ h2 {
                     }
                 }
             }
+            .com-s-title {
+                background: rgba(0,0,0, 0.80);
+                color: #fff;
+                font: italic 12px/24px "Open Sans";
+                display: block;
+                height: 25px;
+                position: absolute;
+                opacity: 0;
+                bottom: 0;
+                left: 0;
+                text-align: center;
+                width: 100%;
+                z-index: 2;
+            }
+            &:hover .com-s-title{
+                opacity: 1; 
+            }
         }
     }
 }
@@ -414,7 +423,7 @@ h2 {
         max-width: 402px;
         width: 100%;
         h3:before {
-            background: url(img/ico_news.png) center center no-repeat;
+            background: url(../images/ico_news.png) center center no-repeat;
             background-size: 32px 26px;
             top: -3px;
         }
@@ -442,7 +451,7 @@ h2 {
         max-width: 460px;
         width: 100%;
         h3:before {
-            background: url(img/ico_articles.png) center center no-repeat;
+            background: url(../images/ico_articles.png) center center no-repeat;
             background-size: 32px 32px;
             top: -3px;
         }
@@ -550,7 +559,7 @@ h2 {
                     margin-bottom: 35px;
                 }
                 .i-pdf {
-                    background: url(img/ico_pdf.png) no-repeat;
+                    background: url(../images/ico_pdf.png) no-repeat;
                     background-size: 100%;
                     cursor: pointer;
                     float: left;
@@ -579,7 +588,7 @@ h2 {
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            background: url(img/ico_calc_n.png) right 18px bottom 0 no-repeat #fff;
+            background: url(../images/ico_calc_n.png) right 18px bottom 0 no-repeat #fff;
             background-size: 77px 64px;
             color: #000;
             display: block;
@@ -604,7 +613,7 @@ h2 {
                     margin-bottom: 25px;
                 }
                 .i-link {
-                    background: url(img/ico_link_g.png) no-repeat;
+                    background: url(../images/ico_link_g.png) no-repeat;
                     background-size: 100%;
                     cursor: pointer;
                     float: left;
@@ -724,7 +733,7 @@ h2 {
                 margin-bottom: 20px;
             }
             .i-link {
-                background: url(img/ico_link_grn.png) no-repeat;
+                background: url(../images/ico_link_grn.png) no-repeat;
                 background-size: 100%;
                 cursor: pointer;
                 float: left;
@@ -762,7 +771,7 @@ h2 {
                     margin-bottom: 25px;
                 }
                 .i-link {
-                    background: url(img/ico_link_g.png) no-repeat;
+                    background: url(../images/ico_link_g.png) no-repeat;
                     background-size: 100%;
                     float: left;
                     height: 33px;
@@ -801,7 +810,7 @@ h2 {
             display: none;
         }
         .f-logo {
-            background: url(img/f_logo.png) no-repeat;
+            background: url(../images/f_logo.png) no-repeat;
             background-size: 291px 54px;
             height: 54px;
             float: left;
@@ -813,7 +822,7 @@ h2 {
             li {
                 display: inline-block;
                 a {
-                    background: url(img/socials.png) no-repeat;
+                    background: url(../images/socials.png) no-repeat;
                     background-size: 209px 40px;
                     display: block;
                     height: 40px;
@@ -896,7 +905,7 @@ h2 {
             display: block;
         }
         .play {
-            background: url(img/ico_play.png) 20px center no-repeat #4C7637;
+            background: url(../images/ico_play.png) 20px center no-repeat #4C7637;
             background-size: 26px 32px;
             border-radius: 100%;
             height: 60px;
@@ -1074,7 +1083,7 @@ h2 {
         z-index: 6;
     }
     .m-select {
-        background: url(img/m_select.png) no-repeat;
+        background: url(../images/m_select.png) no-repeat;
         background-size: 100%;
         display: block!important;
         height: 45px;
@@ -1112,12 +1121,410 @@ h2 {
     }
 }
 
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0;
+    }
+    #wrapper {
+        overflow: hidden;
+    }
+    .sticky {
+        margin-left: 0;
+        left: 0;
+        width: 100%;
+        z-index: 20;
+    }
+    .header {
+        position: relative;
+    }
+    .header .logo {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        position: relative;
+    }
+    .header .m-line {
+        background: url(img/line.png) repeat-x;
+        background-size: 6px 100%;
+        display: block;
+        height: 1px;
+        margin: 10px auto;
+        width: 90%;
+    }
+    .header .logo_quest {
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+    /*------------------------------------*\
+        #About
+    \*------------------------------------*/
+    .about {
+        font: 12px/17px "Open Sans";
+        padding: 15px;
+    }
+    /*------------------------------------*\
+        #Webinar
+    \*------------------------------------*/
+    .webinar h1 {
+        font: 300 26px/37px "Open Sans";
+    }
+    .webinar .current-v {
+        min-height: 177px!important;
+    }
+    .webinar .current-v .play {
+        background: url(img/ico_play.png) 20px center no-repeat #4C7637;
+        background-size: 26px 32px;
+        border-radius: 100%;
+        height: 60px;
+        margin-top: 40px;
+        margin-left: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 60px;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+    .webinar .current-v .v-info {
+        float: none;
+        margin: 0 auto 0;
+    }
+    .webinar .current-v .v-info .title {
+        color: #000;
+        display: block;
+        font: 700 20px/27px "Open Sans";
+        margin: 0 auto;
+        text-align: center;
+        max-width: 295px;
+    }
+    .webinar .current-v .v-info .by {
+        color: #969696;
+        font: italic 14px/19px "Open Sans";
+        margin: 10px auto;
+        text-align: center;
+    }
+    .webinar .current-v .v-info .by .author {
+        border-bottom: 1px dashed #0088CC;
+        color: #0088CC;
+    }
+    .webinar .current-v .video .question {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background: rgba(0,0,0,.90);
+        position: fixed;
+        z-index: 99;
+    }
+    .webinar .current-v .video .question h1 {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font: 700 18px/28px "Open Sans";
+        padding: 0 20px;
+    }
+    .webinar .current-v .video .question #counter {
+        height: 50px;
+        font: 300 35px/48px "Open Sans";
+        width: 50px;
+    }
+    .webinar .current-v .video .question .btn {
+        border: 1px solid #fff;
+        color: #fff;
+        display: inline-block;
+        height: 50px;
+        font: 700 20px/45px "Open Sans";
+        margin: 0 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 152px;
+    }
+    .webinar .current-v .video .author-bio {
+        background: #fff;
+        display: none;
+        height: auto;
+        width: 100%;
+    }
+    .webinar .current-v .video .author-bio .avatar {
+        float: none;
+        margin: 0 auto;
+    }
+    .webinar .current-v .video .author-bio .bio {
+        margin-left: 0;
+    }
+    .webinar .current-v .video .author-bio .bio p {
+        padding-right: 0;
+    }
+    .webinar .current-v .video {
+        background-size: 100%;
+        background-position: bottom right;
+        box-shadow: none;
+        position: relative;
+        min-height: 177px;
+        height: auto;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        transition: 0!important;
+        transform: none!important;
+        -webkit-transform: none!important;
+        -ms-transform: none!important;
+    }
+    .webinar .current-v .video .w-video {
+        display: none;
+        height: 180px;
+        position: relative;
+        width: 100%;
+    }
+    .webinar .current-v .video.active {
+        display: block;
+        height: 180px;
+        width: 100%;
+    }
+    .webinar .v-tabs {
+        padding: 0;
+    }
+    .webinar .v-tabs ul li {
+        margin-right: 0;
+        max-width: 100%;
+        width: 50%;
+    }
+    .webinar .v-tabs .pre-v {
+        height: 120px;
+    }
+    .webinar .v-tabs .pre-v:hover .play-video {
+        display: none!important;
+    }
+    .webinar .v-tabs .pre-v:hover .play {
+        display: none!important;
+    }
+    .webinar .v-tabs .pre-v:hover .title {
+        display: block!important;
+    }
+    .webinar .v-tabs ul li.coming-soon:before {
+        height: 95px;
+    }
+    /*------------------------------------*\
+        #News & Features
+    \*------------------------------------*/
+    .news-features .wrap {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 20px 0px 0px;
+    }
+    .news-features .f-articles {
+        max-width: 100%;
+    }
+    .news-features .n-latest .block .date {
+        float: none;
+        display: block;
+    }
+    .news-features .n-latest {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    .news-features .n-latest .block .title {
+        margin-left: 0;
+    }
+    .news-features .f-articles h3 {
+        margin-left: 20px;
+    }
+    .news-features .f-articles .block {
+        margin-bottom: 0;
+        position: relative;
+    }
+    .news-features .f-articles .block .preview {
+        height: 180px;
+        width: 100%;
+    }
+    .news-features .f-articles .block .preview:before {
+        background: rgba(0, 0, 0, 0.5);
+        content: '';
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .news-features .f-articles .block .preview img {
+        display: block;
+        height: 100%;
+        min-height: 180px;
+        width: 100%;
+    }
+    .news-features .f-articles .block .info {
+        color: #fff;
+        margin: 0;
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+    }
+    .news-features .f-articles .block .info .title {
+        color: #fff;
+        font: 14px/19px "Open Sans";
+        margin-bottom: 5px;
+    }
+
+    /*------------------------------------*\
+        #Tools & Resources
+    \*------------------------------------*/
+    .tools-resources .wrap {
+        margin: 0 0 10px;
+    }
+    .tools-resources .left .calculator {
+        margin: 5px 0 25px;
+    }
+
+    /*------------------------------------*\
+        #Map
+    \*------------------------------------*/
+    .tools-resources .right .pdm-state {
+        border: 0;
+    }
+    .tools-resources .right .pdm-state .trigger {
+        display: none;
+    }
+    .tools-resources .right .map-list #tab-1 {
+        display: none;
+    }
+    .tools-resources .right .map-list #tab-2 {
+        display: none;
+    }
+    .tools-resources .right .map-list {
+        display: none;
+    }
+    .stndrt-select {
+        height: 45px;
+        opacity: 0;
+        position: relative;
+        width: 280px;
+        z-index: 6;
+    }
+    .m-select {
+        background: url(img/m_select.png) no-repeat;
+        background-size: 100%;
+        display: block !important;
+        height: 45px;
+        margin: 25px 0;
+        width: 285px;
+    }
+
+    /*------------------------------------*\
+        #Footer
+    \*------------------------------------*/
+    .footer .logo-socials .fl-text {
+        color: #4C7637;
+        display: block;
+        font: 12px/17px "Open Sans";
+        margin: 0 auto 15px;
+        text-align: center;
+        width: 110px;
+    }
+    .footer .logo-socials .f-logo {
+        background-position: -122px top;
+        display: block;
+        float: none;
+        margin: 0 auto;
+        width: 169px;
+    }
+    .footer .logo-socials .socials {
+        float: none;
+        margin: 15px 0 0;
+        text-align: center;
+    }
+    .footer .logo-socials .socials a {
+        margin: 0 6px!important;
+    }
+    .footer .f-info {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+}
+/*------------------------------------*\
+    #Iphone 6, 6 Plus
+\*------------------------------------*/
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+    .news-features .n-latest {
+        max-width: 100%;
+    }
+    .news-features .f-articles {
+        max-width: 100%;
+    }
+    .tools-resources .left {
+        max-width: 100%;
+    }
+    .tools-resources .right {
+        max-width: 100%;
+    }
+    .m-select {
+        height: 60px;
+        width: 100%;
+    }
+}
+/*------------------------------------*\
+    #Nexus 7
+\*------------------------------------*/
+@media screen and (device-width: 601px) {
+    .webinar .v-tabs ul li.coming-soon:before {
+        height: 145px;
+    }
+    .webinar .v-tabs {
+        padding: 0;
+    }
+    .webinar .v-tabs ul li {
+        margin-right: 0;
+        max-width: 100%;
+        width: 50%;
+    }
+    .webinar .v-tabs .pre-v .play-video {
+        opacity: 0;
+    }
+    .mobile-states {
+        display: none;
+    }
+    .desktop-states {
+        display: block;
+    }
+    .tools-resources .right .map-list .states-list ul:nth-child(2) {
+        margin: 0 40px;
+    }
+}
+/*------------------------------------*\
+    #Nexus 5
+\*------------------------------------*/
+@media screen and (device-width: 360px) and (device-height: 592px) and (-webkit-device-pixel-ratio: 3) {
+    .webinar .sticky {
+        z-index: 15;
+    }
+    .webinar .current-v .video {
+        z-index: 1;
+    }
+    .news-features .f-articles {
+        max-width: 100%;
+    }
+    .touch .sticky {
+        z-index: 9999!important;
+    }
+    .webinar .v-tabs ul li.coming-soon:before {
+        height: 95px;
+    }
+    .news-features .f-articles {
+        max-width: 100%;
+    }
+}
 
 /*===========================
  *     *         *          *
  *     *         *          *
  * ===============================
- * SOSOSOSORY CUSTOM STYLES
+ *         CUSTOM STYLES
  * Pain Meeting Highlights section
  * ===============================
  *
@@ -1126,11 +1533,58 @@ h2 {
 .webinar{
     background-color: #fff;
 }
+.pain-meeting{
+    .carousel{
+        .carousel-control{
+            width: 30px;
+            height: 30px;
+            line-height: 33px;
+            border: 1px solid #E1E1E1;
+            background: none;
+            top: -42px;
+            right: 0;
+            color: #000;
+            text-shadow: none;
+
+            &.left{
+                left: auto;
+                margin-right: 40px;
+            }
+        }
+        .carousel-inner{
+            margin-right: -29px;
+            width: auto;
+
+            &:before{
+               content: "";
+               display: block;
+               position: absolute;
+               top: 0;
+               right: 0;
+               bottom: 0;
+               background: #F7F7F7;
+               width: 29px;
+               z-index: 2;
+            }
+        }
+    }
+}
+.pain-meeting .wrap{
+     margin: 30px 0;
+     position: relative;
+}
+.pain-meeting .sticky span{
+    display: block;
+    width: 370px;
+    margin: -10px 0 0 -70px;
+    padding: 11px 30px;
+    background-color: #ECECEC;
+}
 .pain-meeting h3{
     box-sizing: border-box;
     color: #000;
     font: 700 20px/27px "Open Sans";
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     position: relative;
     text-transform: uppercase;
 }
@@ -1145,29 +1599,241 @@ h2 {
      -moz-box-sizing: border-box;
      box-sizing: border-box;
 }
-@media screen and (min-width: 480px){
+.pain-meeting .live-meeting{
+    .carousel{
+
+        .item{
+             overflow: hidden;
+
+             .thumb{
+                  float: left;
+                  width: 45%;
+                  overflow: hidden;
+                  position: relative;
+                  margin-right: 5%;
+
+                  &:nth-child(n+3){
+                      margin-top: 15px;
+                  }
+
+                  img{
+                      width: 100%;
+                  }
+
+                  .title{
+                      position: absolute;
+                      right: 0;
+                      left: 0;
+                      bottom: 0;
+
+                      color: #fff;
+                      font: 700 12px/17px "Open Sans";
+                      padding: 5px 15px;
+                      text-transform: uppercase;
+                      z-index: 1;
+                      opacity: 1;
+
+                      transition: opacity .1s ease-in;
+
+                      &:before{
+                           content: "";
+                           display: block;
+                           position: absolute;
+                           top: 0;
+                           left: 0;
+                           right: 0;
+                           bottom: 0;
+                           opacity: 0.75;
+                           background: #FFC500;
+                           z-index: -1;
+                      }
+                  }
+                  .play-icon{
+                      background: url('../images/Play.png') no-repeat 50% 50%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      margin: auto;
+                      opacity: 0;
+                      transition: opacity .1s ease-in;
+                  }
+                  .play-text{
+                      position: absolute;
+                      right: 0;
+                      left: 0;
+                      bottom: 0;
+
+                      color: #fff;
+                      font: italic 700 12px/24px "Open Sans";
+                      text-align: center;
+                      z-index: 1;
+                      opacity: 0;
+                      height: 25px;
+                      transition: opacity .1s ease-in;
+
+                      &:before{
+                           content: "";
+                           display: block;
+                           position: absolute;
+                           top: 0;
+                           left: 0;
+                           right: 0;
+                           bottom: 0;
+                           opacity: 0.75;
+                           background: #FFC500;
+                           z-index: -1;
+                      }
+
+                  }
+
+                  &:hover,
+                  &:focus{
+                      .title{
+                           opacity: 0;
+                      }
+                      .play-icon{
+                           opacity: 1;
+                      }
+                      .play-text{
+                           opacity: 1;
+                      }
+                  }
+
+             }
+        }
+    }
+
+}
+
+.pain-meeting .meeting-news{
+    .item{
+        overflow: hidden;
+
+        .news{
+             float: left;
+             width: 45%;
+             overflow: hidden;
+             position: relative;
+             margin-right: 5%;
+
+             .title{
+                 color: #000;
+                 display: block;
+                 font: 18px/24px "Open Sans";
+                 margin: 5px 0 10px;
+                 text-decoration: none;
+
+                 &:hover,
+                 &:focus{
+                      text-decoration: underline;
+                 }
+             }
+             p{
+                 font: 13px/17px "Open Sans";
+                 margin-top: 10px;
+             }
+        }
+    }
+}
+.pain-meeting .mn-boxes{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 10;
+     padding: 40px;
+     background-color: #FFF;
+
+     .box{
+         position: absolute;
+         top: 40px;
+         left: 40px;
+         bottom: 40px;
+         right: 40px;
+         overflow-y: scroll;
+         display: none;
+         padding-right: 20px;
+
+         &.active{
+             display: block;
+         }
+
+         .title{
+            font: 40px/1.2 "Open Sans";
+            margin-bottom: 30px;
+            color: #000;
+         }
+
+         .content{
+            font: 14px/1.7 "Open Sans";
+            color: #000;
+         }
+
+         .footer{
+             text-align: left;
+
+             .column{
+                float: left;
+                margin-right: 30px;
+             }
+
+             .author{
+                font-weight: bold;
+                color: #000;
+                font-size: 14px;
+                font-style: italic;
+             }
+             .time{
+                 font-size: 12px;
+                 color: #666;
+
+
+             }
+             .socials{
+                 a{
+                     margin-right: 7px;
+                     display: inline-block;
+                     width: 30px;
+
+                     img{
+                          max-width: 100%;
+                     }
+                 }
+             }
+         }
+     }
+
+     .close-btn{
+         position: absolute;
+         top: -17px;
+         right: -17px;
+         width: 35px;
+         height: 35px;
+         line-height: 35px;
+         background-color: #ECECEC;
+         border: 1px solid #E1E1E1;
+         font-size: 50px;
+         padding: 0;
+         span{
+             position: relative;
+             top: -8px;
+             display: block;
+         }
+     }
+}
+
+@media screen and (min-width: 768px){
     .pain-meeting .live-meeting,
     .pain-meeting .meeting-news{
          float: left;
-         width: 50%;
+         width: 48%;
+         padding: 20px 0;
     }
-    .pain-meeting .live-meeting .item{
-         overflow: hidden;
-    }
-    .pain-meeting .live-meeting .item .thumb{
-         float: left;
-         width: 47%;
-         overflow: hidden;
-    }
-    .pain-meeting .live-meeting .item .thumb:nth-child(2n){
-        margin-left: 6%;
-    }
-    .pain-meeting .meeting-news .item{
-        overflow: hidden;
-    }
-    .pain-meeting .meeting-news .item .news{
-         float: left;
-         width: 50%;
+    .pain-meeting .meeting-news{
+        margin-left: 4%;
     }
 }
 .pain-meeting .meeting-news .extra{
