@@ -76,13 +76,15 @@ get_header(); ?>
                                 $extra = array();
                                 $extra['time'] = get_the_time('M d, Y');
                                 $extra['title'] = get_the_title();
-                                $extra['content'] = get_the_content();
+                                $extra['content'] = apply_filters('the_content',get_the_content());
                                 $extra['author'] = get_the_author();
                                 $extra['id'] = $mn_item_id;
 
                                 $socials = function_exists('get_field') ? get_field('socials') : false;
 
                                 if($socials){
+
+                                    $socials_html = '';
 
                                     foreach($socials as $social){
                                         $socials_html .= '<a target="_blank" href="'. $social['url'] .'"><img src="'. $social['icon'] .'" alt=""></a>';
@@ -139,7 +141,7 @@ get_header(); ?>
 
                 <?php
                     if(count($mn_lightbox_arr)){
-                        $html = '<div class="mn-boxes hidden">';
+                        $html = '<div class="mn-boxes">';
                         $html .= '<button class="close-btn"><span>&times;</span></button>';
                         $i = 0;
 

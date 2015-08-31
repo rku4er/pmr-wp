@@ -512,6 +512,34 @@
             });
         });
 
+        //Meeting News section text boxes
+        $('.meeting-news .news .title').each(function(){
+            var box_holder = $('.mn-boxes'),
+                boxes = box_holder.find('.box'),
+                close = box_holder.find('.close-btn'),
+                init_height = box_holder.height();
+
+            box_holder.hide();
+
+            $(this).on('click', function(e){
+                e.preventDefault();
+                var id = $(this).attr('href');
+                boxes.removeClass('active').hide();
+                box_holder.fadeIn(300);
+                box_holder
+                    .css('height', init_height)
+                    .animate({ height: boxes.filter(id).height()+80 }, 400, 'easeInOutExpo', function(){
+                        boxes.filter(id).addClass('active').fadeIn(200);
+                    });
+            });
+
+            close.on('click', function(e){
+                e.preventDefault();
+                boxes.removeClass('active').fadeOut(100);
+                box_holder.fadeOut(300);
+            });
+        });
+
       }
     }
   };
