@@ -514,31 +514,61 @@
 
         //Meeting News section text boxes
         $('.meeting-news .news .title').each(function(){
-            var box_holder = $('.mn-boxes'),
-                boxes = box_holder.find('.box'),
-                close = box_holder.find('.close-btn'),
-                init_height = box_holder.height();
+            var box_holder = $('.mn-boxes').eq(0),
+                boxes = box_holder.find('.item'),
+                close = box_holder.find('.close-btn');
 
             box_holder.hide();
 
             $(this).on('click', function(e){
                 e.preventDefault();
-                var id = $(this).attr('href');
-                boxes.removeClass('active').hide();
-                box_holder.fadeIn(300);
-                box_holder
-                    .css('height', init_height)
-                    .animate({ height: boxes.filter(id).height()+80 }, 400, 'easeInOutExpo', function(){
-                        boxes.filter(id).addClass('active').fadeIn(200);
-                    });
+                var id = $(this).attr('href'),
+                    curr_box = boxes.filter(id);
+
+                box_holder.carousel($(id).index()).fadeIn(400);
             });
 
             close.on('click', function(e){
                 e.preventDefault();
-                boxes.removeClass('active').fadeOut(100);
                 box_holder.fadeOut(300);
             });
         });
+
+        $(window).load(function(){
+            $('.mn-boxes').css('visibility', 'visible');
+        });
+
+        $('.live-meeting .thumb').each(function(){
+            var $self = $(this),
+                src = $(this).attr('href'),
+                vid = $self[0].pathname.split("/").slice(-1)[0],
+                uid = guid(),
+                container = $('<div id="video_'+ uid +'" class="wistia_embed wistia_async_'+ vid +' videoFoam=true embedType=api async=true" style="width:100%;height:100%;">&nbsp;</div>');
+
+            $self.append(container);
+
+            $self.on('click', function(e){
+                e.preventDefault();
+            });
+
+            window.wistiaInit = function(W) {
+                W.options('video_'+ uid, {
+                  autoPlay: false,
+                  playerColor: '#ff0000'
+                });
+                W.api('video_'+ uid).pause();
+            };
+
+        });
+
+        function guid() {
+          function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+          }
+          return s4() + s4() + '-' + s4() + s4();
+        }
 
       }
     }

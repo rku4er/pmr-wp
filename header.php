@@ -39,6 +39,7 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
+    <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
 </head>
 <body>
 

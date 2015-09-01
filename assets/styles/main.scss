@@ -2,9 +2,25 @@
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
-@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_print.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_glyphicons.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_scaffolding.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_type.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_code.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_grid.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_tables.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_forms.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_buttons.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_component-animations.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_carousel.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_utilities.scss";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_responsive-utilities.scss";
 // endbower
 
 @import "common/_ie";
 @import "common/_print";
 @import "common/_global";
+@import "common/_custom";

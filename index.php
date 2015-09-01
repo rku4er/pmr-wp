@@ -17,10 +17,13 @@ get_header(); ?>
                     <?php $lm_post = new WP_Query(array('post_type' => 'live-meeting')); ?>
                     <?php $lm_carousel_id = uniqid('carousel_'); ?>
                     <?php if($lm_post): ?>
-                    <div class="carousel slide" id="<?php echo $lm_carousel_id; ?>" data-ride="carousel" data-interval="0">
+                    <div class="carousel slide" id="<?php echo $lm_carousel_id; ?>" data-ride="carousel" data-interval="0" data-wrap="false">
                         <div class="carousel-inner">
                             <?php $i=0; while($lm_post->have_posts()) : $lm_post->the_post(); $i++; ?>
 
+                            <?php
+                                $embed = get_field('embed_code');
+                            ?>
                             <?php
                                 if($i === 1){
                                     echo '<div class="item active">';
@@ -28,11 +31,8 @@ get_header(); ?>
                                     echo '</div><div class="item">';
                                 }
                             ?>
-                            <a class="thumb" href="#">
+                            <a class="thumb" href="<?php echo $embed; ?>">
                                 <img src="<?php echo wp_get_attachment_image_src( get_field('video_preview'), 'live-meeting-thumb')[0]; ?>" />
-                                <p class="title"><?php the_title(); ?></p>
-                                <i class="play-icon"></i>
-                                <p class="play-text">Play Video</p>
                             </a>
                             <?php
                                 if($i === $lm_post->post_count){
@@ -66,7 +66,7 @@ get_header(); ?>
                     <?php $mn_lightbox_arr = array(); ?>
                     <?php if($mn_post): ?>
 
-                    <div class="carousel slide" id="<?php echo $mn_carousel_id; ?>" data-ride="carousel" data-interval="0">
+                    <div class="carousel slide" id="<?php echo $mn_carousel_id; ?>" data-ride="carousel" data-interval="0" data-wrap="false">
                         <div class="carousel-inner">
 
                             <?php $i=0; while($mn_post->have_posts()) : $mn_post->the_post(); $i++; ?>
@@ -74,10 +74,10 @@ get_header(); ?>
                             <?php
                                 $mn_item_id = uniqid('box_');
                                 $extra = array();
-                                $extra['time'] = get_the_time('M d, Y');
+                                $extra['time'] = date('M d, Y', strtotime(get_field('date')));
                                 $extra['title'] = get_the_title();
                                 $extra['content'] = apply_filters('the_content',get_the_content());
-                                $extra['author'] = get_the_author();
+                                $extra['author'] = get_field('author');
                                 $extra['id'] = $mn_item_id;
 
                                 $socials = function_exists('get_field') ? get_field('socials') : false;
@@ -140,26 +140,42 @@ get_header(); ?>
                 </div><!--  /.meeting-news -->
 
                 <?php
+                    $mn_text_carousel_id = uniqid('carousel_');
+
                     if(count($mn_lightbox_arr)){
-                        $html = '<div class="mn-boxes">';
+                        $html = '<div class="mn-boxes carousel slide" id="'. $mn_text_carousel_id .'" data-ride="carousel" data-interval="0">';
                         $html .= '<button class="close-btn"><span>&times;</span></button>';
                         $i = 0;
+
+                        $html .= '<div class="carousel-inner">';
 
                         foreach($mn_lightbox_arr as $box){
                             $i++;
                             $active = ($i === 1) ? ' active' : '';
-                            $html .= '<div class="box '. $active .'" id="'. $box['id'] .'">';
-                                $html .= '<h4 class="title">' . $box['title'] . '</h4>';
-                                $html .= '<div class="content">' . $box['content'] . '</div>';
-                                $html .= '<div class="footer clearfix">';
-                                    $html .= '<div class="column">';
-                                        $html .= '<div class="author">' . $box['author'] . '</div>';
-                                        $html .= '<div class="time">' . $box['time'] . '</div>';
-                                    $html .= '</div>';
-                                    $html .= '<div class="socials">' . $box['socials'] . '</div>';
-                                $html .= '</div>';
-                            $html .= '</div>';
+                            $html .= '<div class="item '. $active .'" id="'. $box['id'] .'">
+                                <h4 class="title">' . $box['title'] . '</h4>
+                                <div class="content">' . $box['content'] . '</div>
+                                <div class="footer clearfix">
+                                    <div class="column">
+                                        <div class="author">' . $box['author'] . '</div>
+                                        <div class="time">' . $box['time'] . '</div>
+                                    </div>
+                                    <div class="socials">' . $box['socials'] . '</div>
+                                </div>
+                            </div>';
                         }
+
+                        $html .= '</div>';
+
+                        $html .= '<a class="left carousel-control" href="#'. $mn_text_carousel_id .'" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#'. $mn_text_carousel_id .'" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>';
+
                         $html .= '</div>';
                         echo $html;
                     }
