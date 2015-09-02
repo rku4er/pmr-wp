@@ -23,7 +23,7 @@
 
         // Sticky Headers
         $(".no-touch .sticky").stick_in_parent({
-            'offset_top': 0
+            'offset_top': 70
         });
 
         var deviceAgent = navigator.userAgent.toLowerCase();
@@ -542,6 +542,29 @@
             type : 'iframe',
             midClick: true
         });
+
+        $('.webinar .current-v .tab-content').each(function(){
+            var link = $(this).find('a.video_embed').eq(0),
+                src = link.attr('href'),
+                vid = link.data('vid'),
+                uid = guid(),
+                container = $('<div id="video_'+ uid +'" class="wistia_embed wistia_async_'+ vid +' videoFoam=true embedType=api async=true" style="width:100%;height:100%;">&nbsp;</div>');
+
+            link.append(container);
+
+            link.on('click', function(e){
+                e.preventDefault();
+            });
+        });
+
+        function guid() {
+          function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+          }
+          return s4() + s4() + '-' + s4() + s4();
+        }
 
 
       }

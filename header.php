@@ -39,6 +39,7 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <?php wp_head(); ?>
+    <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
 </head>
 <body>
 
@@ -90,9 +91,15 @@
                                 </div>
                             </div>
 
-                            <video class="w-video" controls>
+                            <!-- <video class="w-video" controls>
                                 <source src="<?php the_field('video'); ?>" type="video/mp4">
-                            </video>
+                            </video> -->
+                            <?php
+                                $embed = get_field('video_embed_code');
+                                preg_match("/\w+(?=\?)/", $embed, $matches);
+                                $vid = $matches[0];
+                            ?>
+                            <?php if($embed) echo '<a data-vid="'. $vid .'" class="video_embed" href="'. $embed .'"></a>'; ?>
 
                             <div class="question">
                                 <h1><?php the_field('question'); ?></h1>

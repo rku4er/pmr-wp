@@ -15,7 +15,7 @@ get_header(); ?>
             <div class="wrap clearfix">
 
                 <div class="live-meeting">
-                    <h3>Live meeting coverage</h3>
+                    <h3>Live meeting <br> coverage</h3>
                     <?php $lm_post = new WP_Query(array('post_type' => 'live-meeting')); ?>
                     <?php $lm_carousel_id = uniqid('carousel_'); ?>
                     <?php if($lm_post): ?>
@@ -25,9 +25,9 @@ get_header(); ?>
 
                             <?php
                                 $embed = get_field('embed_code');
-                                preg_match("/\w+\?/", $embed, $matches);
+                                preg_match("/\w+(?=\?)/", $embed, $matches);
                                 $vid = $matches[0];
-                                $href = '//fast.wistia.net/embed/iframe/'. $vid .'popover=true';
+                                $href = '//fast.wistia.net/embed/iframe/'. $vid .'?popover=true';
                                 $src = wp_get_attachment_image_src( get_field('video_preview'), 'live-meeting-thumb' )[0];
                             ?>
                             <?php
@@ -38,7 +38,7 @@ get_header(); ?>
                                 }
                             ?>
                             <a class="thumb magnific-popup" href="<?php echo $href; ?>">
-                            <?php if($src): ?><img src="<?php echo $src; ?>" /><?php endif;?>
+                                <?php if($src): ?><img src="<?php echo $src; ?>" /><?php endif;?>
                                 <p class="title"><?php the_title(); ?></p>
                                 <i class="play-icon"></i>
                                 <p class="play-text">Play Video</p>
