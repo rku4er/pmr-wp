@@ -23,7 +23,7 @@
 
         // Sticky Headers
         $(".no-touch .sticky").stick_in_parent({
-            'offset_top': 70
+            'offset_top': 0
         });
 
         var deviceAgent = navigator.userAgent.toLowerCase();
@@ -538,37 +538,11 @@
             $('.mn-boxes').css('visibility', 'visible');
         });
 
-        $('.live-meeting .thumb').each(function(){
-            var $self = $(this),
-                src = $(this).attr('href'),
-                vid = $self[0].pathname.split("/").slice(-1)[0],
-                uid = guid(),
-                container = $('<div id="video_'+ uid +'" class="wistia_embed wistia_async_'+ vid +' videoFoam=true embedType=api async=true" style="width:100%;height:100%;">&nbsp;</div>');
-
-            $self.append(container);
-
-            $self.on('click', function(e){
-                e.preventDefault();
-            });
-
-            window.wistiaInit = function(W) {
-                W.options('video_'+ uid, {
-                  autoPlay: false,
-                  playerColor: '#ff0000'
-                });
-                W.api('video_'+ uid).pause();
-            };
-
+        $('.magnific-popup').magnificPopup({
+            type : 'iframe',
+            midClick: true
         });
 
-        function guid() {
-          function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000)
-              .toString(16)
-              .substring(1);
-          }
-          return s4() + s4() + '-' + s4() + s4();
-        }
 
       }
     }

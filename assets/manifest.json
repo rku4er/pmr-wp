@@ -10,6 +10,7 @@
     },
     "main.css": {
       "files": [
+        "styles/plain.css",
         "styles/main.scss"
       ],
       "main": true

@@ -6,6 +6,8 @@
  */
 get_header(); ?>
 
+<?php $show_pain = function_exists('get_field') ? get_field('show_pain_section', 'options') : false; ?>
+    <?php if($show_pain): ?>
     <div class="pain-meeting">
         <div class="container">
             <h2 class="sticky"><span>Pain meeting highlights - 2015</span></h2>
@@ -23,6 +25,10 @@ get_header(); ?>
 
                             <?php
                                 $embed = get_field('embed_code');
+                                preg_match("/\w+\?/", $embed, $matches);
+                                $vid = $matches[0];
+                                $href = '//fast.wistia.net/embed/iframe/'. $vid .'popover=true';
+                                $src = wp_get_attachment_image_src( get_field('video_preview'), 'live-meeting-thumb' )[0];
                             ?>
                             <?php
                                 if($i === 1){
@@ -31,8 +37,11 @@ get_header(); ?>
                                     echo '</div><div class="item">';
                                 }
                             ?>
-                            <a class="thumb" href="<?php echo $embed; ?>">
-                                <img src="<?php echo wp_get_attachment_image_src( get_field('video_preview'), 'live-meeting-thumb')[0]; ?>" />
+                            <a class="thumb magnific-popup" href="<?php echo $href; ?>">
+                            <?php if($src): ?><img src="<?php echo $src; ?>" /><?php endif;?>
+                                <p class="title"><?php the_title(); ?></p>
+                                <i class="play-icon"></i>
+                                <p class="play-text">Play Video</p>
                             </a>
                             <?php
                                 if($i === $lm_post->post_count){
@@ -183,8 +192,10 @@ get_header(); ?>
 
             </div><!--  /.wrap -->
 
-        </div>
-    </div>
+        </div><!--  /.container -->
+    </div><!--  /.pain-meeting -->
+    <?php endif; ?>
+
     <div class="news-features">
         <div class="container">
             <h2 class="sticky">news &amp; features</h2>

@@ -193,7 +193,7 @@ h2 {
 }
 h2.hidden {
     opacity: 0;
-    display: block;
+    display: block !important;
 }
 .is_stuck {
     left: 50%;
@@ -255,7 +255,7 @@ h2.hidden {
 }
 .about p.hidden {
     opacity: 0;
-    display: block;
+    display: block !important;
 }
 
 /*------------------------------------*\

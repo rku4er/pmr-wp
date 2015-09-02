@@ -20,7 +20,5 @@
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_responsive-utilities.scss";
 // endbower
 
-@import "common/_ie";
-@import "common/_print";
-@import "common/_global";
+@import "common/_plain";
 @import "common/_custom";
