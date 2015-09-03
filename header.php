@@ -40,9 +40,45 @@
     <![endif]-->
     <?php wp_head(); ?>
     <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+    <script>
+        function getRequestParam( name )
+        {
+          name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+          var regexS = "[\\?&]"+name+"=([^&#]*)";
+          var regex = new RegExp( regexS );
+          var results = regex.exec( window.location.href );
+          if( results == null )
+            return null;
+          else
+            return results[1];
+        }
+
+        var user_id = getRequestParam("user_id");
+        var email_id = getRequestParam("email_id");
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-50838244-15', 'auto');
+          ga('set', 'dimension1', user_id);
+          ga('set', 'dimension2', email_id);
+          ga('set', 'user_id', user_id);
+          ga('set', 'email_id', email_id);
+          ga('send', 'pageview');
+    </script>
 </head>
 <body>
-
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MCN2QQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCN2QQ');</script>
+<!-- End Google Tag Manager -->
 <div id="wrapper">
     <div class="header">
         <div class="container clearfix">
@@ -74,7 +110,7 @@
                 <?php while($webinar->have_posts()) : $webinar->the_post(); ?>
 
                     <div class="tab-content" id="tab-<?php echo $trc++; ?>">
-                        <i class="play desktop"></i>
+                        <i class="play desktop" ></i>
                         <div class="v-info">
                             <span class="title"><?php the_title(); ?></span>
                             <p class="by">by <span class="author"><?php the_field('author_name'); ?></span></p>
@@ -104,8 +140,8 @@
                             <div class="question">
                                 <h1><?php the_field('question'); ?></h1>
                                 <span id="counter">10</span>
-                                <span class="answer btn yes">Yes</span>
-                                <span class="answer btn no">No</span>
+                                <span class="answer btn yes" onClick="woopra.track('Webinar - Question', { Block: 'Webinar', Element: 'Yes button', Title: 'Yes'  })">Yes</span>
+                                <span class="answer btn no" onClick="woopra.track('Webinar - Question', { Block: 'Webinar', Element: 'No button', Title: 'No'  })">No</span>
                             </div>
                         </div>
                     </div>
@@ -126,7 +162,7 @@
                         <a href="#tab-<?php echo $tr++; ?>" class="pre-v" style="background-image: url('<?php the_field('video_preview'); ?>');">
                             <div class="info">
                                 <p class="title"><?php the_title(); ?></p>
-                                <i class="play"></i>
+                                <i class="play" onClick="woopra.track('Webinar - Thumbnail', { Block: 'Webinar', Element: 'Thumbnail', Title: '<?php the_title(); ?>'  })"></i>
                                 <p class="play-video">Play Video</p>
                                 <p class="com-s-title">Coming Soon</p>
                             </div>

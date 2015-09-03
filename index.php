@@ -37,7 +37,7 @@ get_header(); ?>
                                     echo '</div><div class="item">';
                                 }
                             ?>
-                            <a class="thumb magnific-popup" href="<?php echo $href; ?>">
+                            <a class="thumb magnific-popup" href="<?php echo $href; ?>" onClick="woopra.track('Pain meeting highlights - Live meeting coverage', { Block: 'Pain meeting highlights', Element: 'Live meeting coverage Thumbnail', Title: '<?php the_title(); ?>'  })">
                                 <?php if($src): ?><img src="<?php echo $src; ?>" /><?php endif;?>
                                 <p class="title"><?php the_title(); ?></p>
                                 <i class="play-icon"></i>
@@ -117,7 +117,7 @@ get_header(); ?>
                             ?>
 
                             <div class="news">
-                                <a href="#<?php echo $mn_item_id; ?>" class="title"><?php trim_title_chars(50, '...'); ?>
+                                <a href="#<?php echo $mn_item_id; ?>" class="title" onClick="woopra.track('Pain meeting highlights - Meeting News', { Block: 'Pain meeting highlights', Element: 'Meeting News Article', Title: '<?php the_title(); ?>'  })"><?php trim_title_chars(50, '...'); ?>
                                     <p><?php content('43'); ?></p>
                                 </a>
                             </div>
@@ -207,7 +207,7 @@ get_header(); ?>
 
                     <div class="block">
                         <span class="date"><?php the_time('M d, Y'); ?></span>
-                        <a href="<?php the_field('link'); ?>" target="_blank" class="title"><?php trim_title_chars(50, '...'); ?></a>
+                        <a href="<?php the_field('link'); ?>" target="_blank" class="title" onClick="woopra.track('News & features - Latest News', { Block: 'News & features', Element: 'Latest News', Title: '<?php the_title(); ?> ' })"><?php trim_title_chars(50, '...'); ?></a>
                     </div>
 
                     <?php endwhile; ?>
@@ -223,7 +223,7 @@ get_header(); ?>
                             <img src="<?php the_field('preview'); ?>" />
                         </div>
                         <div class="info">
-                            <a href="<?php the_field('link'); ?>" target="_blank" class="title"><?php trim_title_chars(50, '...'); ?></a>
+                            <a href="<?php the_field('link'); ?>" target="_blank" class="title" onClick="woopra.track('News & features - Featured Articles', { Block: 'News & features', Element: 'Featured Articles', Title: '<?php the_title(); ?>'  })"><?php trim_title_chars(50, '...'); ?></a>
                             <p><?php content('20'); ?></p>
                         </div>
                     </div>
@@ -260,7 +260,7 @@ get_header(); ?>
                                     <li>
                                         <i class="i-pdf" style="background-image: url('<?php the_sub_field('icon_type'); ?>');"></i>
                                         <div class="info">
-                                            <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title"><?php the_sub_field('link_name') ?></a>
+                                            <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title" onClick="woopra.track('Tools & resourses - Narcotic Charts', { Block: 'Tools & resourses', Element: 'Narcotic Charts', Title: '<?php the_sub_field('link_name') ?>'  })"><?php the_sub_field('link_name') ?></a>
                                             <p class="pdf-size"><?php the_sub_field('description'); ?></p>
                                         </div>
                                     </li>
@@ -274,7 +274,7 @@ get_header(); ?>
                         </div>
                     </div>
 
-                    <a href="http://www.nyc.gov/html/doh/html/mental/MME.html" target="_blank" class="calculator">MME Calculator</a>
+                    <a href="http://www.nyc.gov/html/doh/html/mental/MME.html" target="_blank" class="calculator" onClick="woopra.track('Tools & resourses - MME Calculator', { Block: 'Tools & resourses', Element: 'MME Calculator', Title: 'MME Calculator'  })">MME Calculator</a>
 
                     <div class="pro clearfix">
                         <ul class="list">
@@ -287,7 +287,7 @@ get_header(); ?>
                                 <li>
                                     <i class="i-link" style="background-image: url('<?php the_sub_field('icon_type'); ?>');"></i>
                                     <div class="info">
-                                        <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title"><?php the_sub_field('link_name') ?></a>
+                                        <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title" onClick="woopra.track('Tools & resourses - PROFESSIONAL SOCIETIES', { Block: 'Tools & resourses', Element: 'PROFESSIONAL SOCIETIES', Title: '<?php the_sub_field('link_name') ?>'  })"><?php the_sub_field('link_name') ?></a>
                                         <p class="link"><?php the_sub_field('description'); ?></p>
                                     </div>
                                 </li>
@@ -568,7 +568,7 @@ get_header(); ?>
                                 <li>
                                     <i class="i-link" style="background-image: url('<?php the_sub_field('icon_type'); ?>');"></i>
                                     <div class="info">
-                                        <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title"><?php the_sub_field('link_name') ?></a>
+                                        <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title" onClick="woopra.track('Tools & resourses', { Block: 'MME Calculator', Element: 'MME Calculator', Title: document.title  })"><?php the_sub_field('link_name') ?></a>
                                         <p class="link"><?php the_sub_field('description'); ?></p>
                                     </div>
                                 </li>
@@ -592,7 +592,7 @@ get_header(); ?>
                                 <li>
                                     <i class="i-link" style="background-image: url('<?php the_sub_field('icon_type'); ?>');"></i>
                                     <div class="info">
-                                        <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title"><?php the_sub_field('link_name') ?></a>
+                                        <a href="<?php the_sub_field('link_to_page') ?>" target="_blank" class="title" onClick="woopra.track('Tools & resourses', { Block: 'MME Calculator', Element: 'MME Calculator', Title: document.title  })"><?php the_sub_field('link_name') ?></a>
                                         <p class="link"><?php the_sub_field('description'); ?></p>
                                     </div>
                                 </li>

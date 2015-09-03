@@ -61,6 +61,15 @@
 
         $(".sticky").stick_in_parent()
         .on("sticky_kit:stick", function(e) {
+
+            if(typeof woopra != "undefined"){
+                woopra.track("Page - Sections", {
+                    Block: "Page",
+                    Element: "Section",
+                    Title: e.target.innerHTML
+                });
+            }
+
             $(this).addClass('hide_stick');
         })
         .on("sticky_kit:unstick", function(e) {
@@ -124,32 +133,45 @@
                $(_this).parent().find('.question #counter').text(sec--);
                if (sec == -1) {
                   clearInterval(timer);
-                  $("video").each(function () {
-                        this.pause();
-                        this.currentTime = 0;
-                    });
+
+                    if(typeof woopra != "undefined"){
+                        woopra.track("Webinar Question - Expire", {
+                            Block: "Webinar Question",
+                            Element: "Expire button",
+                            Title: document.title
+                        });
+                    }
+                  //$("video").each(function () {
+                        //this.pause();
+                        //this.currentTime = 0;
+                    //});
                   $(_this).parent().find('.question').fadeOut(200);
                   document.ontouchmove = function(e){ return true; }
                   $(_this).parent().find('video').fadeIn(100);
-                  $(_this).parent().find('video').each(function () {
-                        this.play();
-                    });
+                  //$(_this).parent().find('video').each(function () {
+                        //this.play();
+                    //});
+                    var wistiaEmbed = $(_this).parent().find('.wistia_embed')[0].wistiaApi;
+                    wistiaEmbed.play();
                }
             }, 1000);
 
 
             $(".answer").on('click', function() {
                 clearInterval(timer);
-                $("video").each(function () {
-                    this.pause();
-                    this.currentTime = 0;
-                });
+                //$("video").each(function () {
+                    //this.pause();
+                    //this.currentTime = 0;
+                //});
                 $(_this).parent().find('.question').fadeOut(200);
-                $(_this).parent().find('video').fadeIn(100);
-                $(_this).parent().find('video').each(function () {
-                    this.play();
+                $(_this).parent().find('video').fadeIn(99);
+                //$(_this).parent().find('video').each(function () {
+                    //this.play();
 
-                });
+                //});
+                var wistiaEmbed = $(_this).parent().find('.wistia_embed')[0].wistiaApi;
+                wistiaEmbed.play();
+
                 $(".touch .sticky").removeClass('hidden');
                 document.ontouchmove = function(e){ return true; }
                 return false;
@@ -158,12 +180,26 @@
         };
 
         $(".tab-content").on('click','.play', function() {
-            $("video").each(function () {
-                this.pause();
-                this.currentTime = 0;
-            });
+            //$("video").each(function () {
+                //this.pause();
+                //this.currentTime = 0;
+            //});
             playVideo(this);
         });
+
+        //$('.webinar .current-v .tab-content').each(function(){
+            //var link = $(this).find('a.video_embed').eq(0),
+                //src = link.attr('href'),
+                //vid = link.data('vid'),
+                //uid = guid(),
+                //container = $('<div id="video_'+ uid +'" class="wistia_embed wistia_async_'+ vid +' videoFoam=true embedType=api async=true" style="width:100%;height:100%;">&nbsp;</div>');
+
+            //link.append(container);
+
+            //link.on('click', function(e){
+                //e.preventDefault();
+            //});
+        //});
 
         $(".touch .pre-v").on('click', function() {
             $('.author-bio').fadeOut(50);
@@ -173,10 +209,10 @@
 
         $('.pre-v').on('click', function() {
             sec = 9;
-            $("video").each(function () {
-                this.pause();
-                this.currentTime = 0;
-            });
+            //$("video").each(function () {
+                //this.pause();
+                //this.currentTime = 0;
+            //});
             $('video').fadeOut(50);
             $(".about p").removeClass('hidden');
             $(".webinar .sticky").removeClass('hidden');
